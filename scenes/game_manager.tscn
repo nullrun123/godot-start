@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bjk876gicgev0"]
+
+[ext_resource type="Script" uid="uid://o0th0cmw0eam" path="res://scripts/game_manager.gd" id="1_glms7"]
+[ext_resource type="FontFile" uid="uid://dtgjr4ys24ynh" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_udu3i"]
+
+[node name="GameManager" type="Node" unique_id=1365913435]
+script = ExtResource("1_glms7")
+
+[node name="scorelevel" type="Label" parent="." unique_id=2123362070]
+offset_left = 880.0
+offset_top = -150.0
+offset_right = 986.0
+offset_bottom = -127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_udu3i")
+theme_override_font_sizes/font_size = 8
+text = "You Collected x coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

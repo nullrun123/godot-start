@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://7guiuyii3xiy"]
+
+[ext_resource type="Script" uid="uid://cxqbxtdxdq2a1" path="res://scripts/slime.gd" id="1_n6pvg"]
+[ext_resource type="Texture2D" uid="uid://bvoe4q1004pth" path="res://assets/sprites/slime_green.png" id="1_p2gj0"]
+[ext_resource type="PackedScene" uid="uid://srd8h63isxkf" path="res://scenes/killzone.tscn" id="2_n6pvg"]
+[ext_resource type="PackedScene" uid="uid://bufmxsov8h1et" path="res://scenes/atkzone.tscn" id="4_2npkn"]
+[ext_resource type="Script" uid="uid://c1pc1ldsikhxi" path="res://scripts/atkzone.gd" id="4_pjw23"]
+[ext_resource type="AudioStream" uid="uid://b24gfa37ru4gk" path="res://assets/sounds/hurt.wav" id="6_fd6lc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5wyi"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l8pv"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnioy"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2npkn"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd6lc"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gstla"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k14oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5wyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l8pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnioy")
+}],
+"loop": 1,
+"name": &"atk",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjw23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2npkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd6lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gstla")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k14oa"]
+size = Vector2(10, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj8yd"]
+size = Vector2(8, 3.625)
+
+[sub_resource type="Animation" id="Animation_fd6lc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Killzone:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_gstla"]
+resource_name = "slime_atk"
+length = 1.0333333
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"atk"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Killzone:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5wyi"]
+_data = {
+&"RESET": SubResource("Animation_fd6lc"),
+&"slime_atk": SubResource("Animation_gstla")
+}
+
+[node name="Slime" type="Node2D" unique_id=394388658]
+position = Vector2(-1, -1)
+script = ExtResource("1_n6pvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=617253773]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_k14oa")
+autoplay = "default"
+
+[node name="Killzone" parent="." unique_id=1124904940 instance=ExtResource("2_n6pvg")]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=866897514]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_k14oa")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=898550862]
+position = Vector2(0, -7)
+target_position = Vector2(10, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=995903335]
+position = Vector2(0, -7)
+target_position = Vector2(-10, 0)
+
+[node name="Atkzone" parent="." unique_id=878772056 instance=ExtResource("4_2npkn")]
+position = Vector2(1, -15)
+script = ExtResource("4_pjw23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Atkzone" unique_id=933126107]
+z_index = 4
+position = Vector2(-1, -0.8125)
+shape = SubResource("RectangleShape2D_mj8yd")
+debug_color = Color(1.0588765e-06, 0.6464395, 0.24439165, 0.41960785)
+
+[node name="atksound" type="AudioStreamPlayer2D" parent="." unique_id=662159971]
+stream = ExtResource("6_fd6lc")
+
+[node name="AnimationSlime" type="AnimationPlayer" parent="." unique_id=246669160]
+root_node = NodePath("../atksound")
+libraries/ = SubResource("AnimationLibrary_v5wyi")
+
+[connection signal="body_entered" from="Atkzone" to="." method="_on_atkzone_body_entered"]

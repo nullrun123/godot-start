@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://888v4uglfcxi"]
+
+[ext_resource type="Script" uid="uid://bkfg7hcp17hx0" path="res://scripts/ui_manager.gd" id="1_iku3t"]
+
+[node name="ui_manager" type="CanvasLayer" unique_id=1780542693]
+script = ExtResource("1_iku3t")
+
+[node name="scorelabel" type="Label" parent="." unique_id=1388526709]
+offset_left = 90.0
+offset_top = 97.0
+offset_right = 174.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "awddadwa"
+horizontal_alignment = 1
+vertical_alignment = 1

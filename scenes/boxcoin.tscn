@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bjcj6c1np7icu"]
+
+[ext_resource type="Texture2D" uid="uid://126nrtc7ngou" path="res://assets/sprites/world_tileset.png" id="1_w4o7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k14oa"]
+size = Vector2(16, 16)
+
+[node name="Boxcoin" type="Area2D" unique_id=1985285967]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1685922356]
+texture = ExtResource("1_w4o7q")
+region_enabled = true
+region_rect = Rect2(32, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1305154912]
+shape = SubResource("RectangleShape2D_k14oa")
